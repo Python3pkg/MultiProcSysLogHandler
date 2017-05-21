@@ -39,7 +39,7 @@ class MultiProcessingLog(SysLogHandler):
 				msg = self.format(record) + '\000'
 				prio = '<%d>' % self.encodePriority(self.facility, self.mapPriority(record.levelname))
 				# Message is a string. Convert to bytes as required by RFC 5424
-				if type(msg) is unicode:
+				if type(msg) is str:
 					msg = msg.encode('utf-8')
 				msg = prio + msg
 				try:
